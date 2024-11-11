@@ -1,7 +1,8 @@
 import produce from "immer";
 import { createPerson, commonBattleStatus, commonSensitivity } from "../helper";
+import { TR } from './../../../tHelper';
 
-export const アリス = produce(createPerson(1, "アリス"), person => {
+export const Alice = produce(createPerson(1, TR("アリス")), person => {
     person.characters.normal.battleStatus = commonBattleStatus;
     person.characters.normal.strategies = [
         {

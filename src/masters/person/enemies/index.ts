@@ -1,1 +1,1 @@
-export * from "./スライム";
+export * from "./Slime";

@@ -8,7 +8,7 @@ import { asClass } from "../util";
 
 const { createActions, action, reduceAction } = reduxHelper<MainStore>({
     currentScene: "dungeon",
-    persons: [friends.アリス, friends.栞],
+    persons: [friends.Alice, friends.Shiori],
     party: [],
     clearedDungeonIds: [],
     dungeonFloor: 0,
@@ -62,7 +62,7 @@ const { reducer, actionCreators, actionTypes } = createActions("main", {
                 battle = new BattleClass({
                     initialField: {
                         friends: state.persons,
-                        enemies: [enemies.スライム], // TODO
+                        enemies: [enemies.Slime], // TODO
                     },
                     actions: [],
                 });

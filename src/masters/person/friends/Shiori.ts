@@ -1,7 +1,7 @@
 import produce from "immer";
 import { createPerson, commonBattleStatus, commonSensitivity } from "../helper";
 
-export const 栞 = produce(createPerson(2, "栞"), person => {
+export const Shiori = produce(createPerson(2, "栞"), person => {
     person.characters.normal.battleStatus = commonBattleStatus;
     person.characters.normal.strategies = [
         {

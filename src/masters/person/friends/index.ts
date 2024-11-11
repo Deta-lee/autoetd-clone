@@ -1,2 +1,2 @@
-export * from "./アリス";
-export * from "./栞";
+export * from "./Alice";
+export * from "./Shiori";

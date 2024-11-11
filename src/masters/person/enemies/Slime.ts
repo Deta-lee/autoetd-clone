@@ -1,7 +1,8 @@
 import produce from "immer";
 import { createPerson, commonBattleStatus } from "../helper";
+import { TR } from "../../../tHelper";
 
-export const スライム = produce(createPerson(1001, "スライム"), person => {
+export const Slime = produce(createPerson(1001, TR("スライム")), person => {
     person.characters.normal.battleStatus = commonBattleStatus;
     person.characters.normal.strategies = [
         {
