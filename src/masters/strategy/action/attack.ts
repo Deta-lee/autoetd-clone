@@ -1,6 +1,13 @@
 import produce from "immer";
 import { StrategyAction } from "../../../models";
 import { genActionResults } from "./helper";
+import { TR } from "../../../tHelper";
+const i18n = {
+    zh: {
+        "は": "受到了",
+        "ダメージを受けた！": "伤害！",
+    }
+}
 
 export const attack: StrategyAction = {
     name: "攻撃",
@@ -33,8 +40,8 @@ export const attack: StrategyAction = {
                 if (success) return true;
                 ret({
                     messages: [
-                        `${actor.person.name}は快感で集中できず攻撃失敗してしまった！`,
-                        `${target.person.name}は余裕の表情だ。`,
+                        `${actor.person.name}` + TR('は快感で集中できず攻撃失敗してしまった！'),
+                        `${target.person.name}` + TR('は余裕の表情だ。'),
                     ],
                     resultField: lastField,
                 });
@@ -49,8 +56,8 @@ export const attack: StrategyAction = {
                 if (hit) return true;
                 ret({
                     messages: [
-                        `${actor.person.name}の攻撃は外れた！`,
-                        `${target.person.name}は攻撃をかわしダメージを受けなかった。`,
+                        `${actor.person.name}` + TR('の攻撃は外れた！'),
+                        `${target.person.name}` + TR('は攻撃をかわしダメージを受けなかった。'),
                     ],
                     resultField: lastField,
                 });
@@ -61,7 +68,7 @@ export const attack: StrategyAction = {
             actionResults.next((ret, { actor, lastField, turn }) => {
                 const damage = Math.floor(
                     ((actor.person.battleStatus.atk / 2) * 1 - target.person.battleStatus.def / 4) *
-                        (Math.random() * 0.2 + 1),
+                    (Math.random() * 0.2 + 1),
                 );
                 if (damage) {
                     const beforeHp = target.person.variable.hp;
@@ -84,11 +91,10 @@ export const attack: StrategyAction = {
                         */
                     ret({
                         messages: [
-                            `${actor.person.name}の攻撃！`,
-                            `${target.person.name}は${damage}ダメージを受けた！` +
-                                `[${target.person.variable.hp} : ${beforeHp} : ${beforeHp2} -> ${
-                                    lastField[target.type][target.index].variable.hp
-                                }]`,
+                            `${actor.person.name}${TR('の攻撃！')}`,
+                            `${target.person.name}${TR('は', i18n)}${damage}${TR('ダメージを受けた！', i18n)}` +
+                            `[${target.person.variable.hp} : ${beforeHp} : ${beforeHp2} -> ${lastField[target.type][target.index].variable.hp
+                            }]`,
                         ],
                         resultField: lastField,
                     });
@@ -96,8 +102,8 @@ export const attack: StrategyAction = {
                 }
                 ret({
                     messages: [
-                        `ターン${turn}: ${actor.person.name}の攻撃は効果が無い！`,
-                        `${target.person.name}はダメージを受けなかった。`,
+                        `${TR('ターン')}${turn}: ${actor.person.name}${TR('の攻撃は効果が無い！')}`,
+                        `${target.person.name}${TR('はダメージを受けなかった。')}`,
                     ],
                     resultField: lastField,
                 });

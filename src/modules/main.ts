@@ -1,4 +1,5 @@
 import { reduxHelper } from "./reduxHelper";
+import { TR } from "../tHelper";
 // eslint-disable-next-line import/named
 import { MainStore, SceneId, BattleClass, PersonsClass } from "../models";
 import * as friends from "../masters/person/friends";
@@ -53,11 +54,11 @@ const { reducer, actionCreators, actionTypes } = createActions("main", {
                     return {
                         ...state,
                         dungeonLogIndex,
-                        dungeonLogs: [...state.dungeonLogs, `${state.party.length}人は周囲を探索したがなにもなかった`],
+                        dungeonLogs: [...state.dungeonLogs, `${state.party.length}${TR("人は周囲を探索したがなにもなかった")}`],
                     };
                 }
                 // TODO: バトル開始文言等
-                beginLogs.push("バトル開始!");
+                beginLogs.push(TR("バトル開始!"));
                 battle = new BattleClass({
                     initialField: {
                         friends: state.persons,

@@ -1,6 +1,12 @@
 import produce from "immer";
 import { DungeonActionResultContent, StrategyAction } from "../../../models";
-
+import { TR } from "../../../tHelper";
+const i18n = {
+    zh: {
+        "は": "受到了",
+        "ダメージを受けた！": "伤害！",
+    }
+}
 export const defendBust: StrategyAction = {
     name: "攻撃",
     description: "",
@@ -30,8 +36,8 @@ export const defendBust: StrategyAction = {
             if (!success) {
                 results.push({
                     messages: [
-                        `${battler.person.name}は発情で集中できず攻撃失敗してしまった！`,
-                        `${target.person.name}は余裕の表情だ。`,
+                        `${battler.person.name}` + TR("は発情で集中できず攻撃失敗してしまった！"),
+                        `${target.person.name}` + TR('は余裕の表情だ。'),
                     ],
                     resultField: field,
                 });
@@ -43,8 +49,8 @@ export const defendBust: StrategyAction = {
             if (!hit) {
                 results.push({
                     messages: [
-                        `${battler.person.name}の攻撃は外れた！`,
-                        `${target.person.name}は攻撃をかわしダメージを受けなかった。`,
+                        `${battler.person.name}` + TR('の攻撃は外れた！'),
+                        `${target.person.name}` + TR('は攻撃をかわしダメージを受けなかった。'),
                     ],
                     resultField: field,
                 });
@@ -52,7 +58,7 @@ export const defendBust: StrategyAction = {
             }
             const damage = Math.floor(
                 ((battler.person.battleStatus.atk / 2) * 1 - target.person.battleStatus.def / 4) *
-                    (Math.random() * 0.2 + 1),
+                (Math.random() * 0.2 + 1),
             );
             if (damage) {
                 const beforeHp = target.person.variable.hp;
@@ -75,11 +81,10 @@ export const defendBust: StrategyAction = {
                     */
                 results.push({
                     messages: [
-                        `${battler.person.name}の攻撃！`,
-                        `${target.person.name}は${damage}ダメージを受けた！` +
-                            `[${target.person.variable.hp} : ${beforeHp} : ${beforeHp2} -> ${
-                                resultField[target.type][target.index].variable.hp
-                            }]`,
+                        `${battler.person.name}${TR('の攻撃！')}`,
+                        `${target.person.name}${TR('は', i18n)}${damage}${TR('ダメージを受けた！', i18n)}` +
+                        `[${target.person.variable.hp} : ${beforeHp} : ${beforeHp2} -> ${resultField[target.type][target.index].variable.hp
+                        }]`,
                     ],
                     resultField,
                 });
@@ -87,8 +92,8 @@ export const defendBust: StrategyAction = {
             }
             results.push({
                 messages: [
-                    `ターン${turn}: ${battler.person.name}の攻撃は効果が無い！`,
-                    `${target.person.name}はダメージを受けなかった。`,
+                    `${TR('ターン')}${turn}: ${battler.person.name}${TR('の攻撃は効果が無い！')}`,
+                    `${target.person.name}${TR('はダメージを受けなかった。')}`,
                 ],
                 resultField: field,
             });
