@@ -34,4 +34,11 @@ export const actorVariableKeyT = tHelper<ActorVariableKey>({
         ep: "発情P",
         rp: "抵抗値",
     },
+    zh: {
+        hp: "HP",
+        mp: "MP",
+        ap: "绝顶P",
+        ep: "発情P",
+        rp: "抵抗値",
+    },
 });

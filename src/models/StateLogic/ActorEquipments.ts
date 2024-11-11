@@ -66,7 +66,21 @@ export const actorBasicEquipmentsKeyT = tHelper<ActorBasicEquipmentsKey>({
         shoes: "靴",
         accessories: "アクセサリー",
     },
+    zh: {
+        head: "头部",
+        neck: "颈部",
+        wrist: "手腕",
+        outer: "外套",
+        tops: "上衣",
+        bra: "胸罩",
+        undershirt: "内衣（上）",
+        shorts: "内衣（下）",
+        bottoms: "下装",
+        shoes: "鞋",
+        accessories: "配饰",
+    },
 });
+
 
 export type ActorPartEquipments = {
     readonly [PID in PartId]: readonly OwnedId[];

@@ -11,6 +11,11 @@ export const boolOperatorT = tHelper<BoolOperator>({
         "=": "",
         "<=": "以下",
     },
+    zh: {
+        ">=": "以上",
+        "=": "",
+        "<=": "以下",
+    },
 });
 
 export function opBool(actual: number, op: BoolOperator, target: number) {

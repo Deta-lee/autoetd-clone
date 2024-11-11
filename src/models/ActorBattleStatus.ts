@@ -52,4 +52,15 @@ export const actorBattleStatusKeyT = tHelper<ActorBattleStatusKey>({
         agi: "俊敏",
         con: "集中力",
     },
+    zh: {
+        maxHp: "最大HP",
+        maxMp: "最大MP",
+        atk: "攻击力",
+        def: "防御力",
+        mAtk: "智力",
+        mDef: "经验",
+        hit: "命中率",
+        agi: "敏捷",
+        con: "集中力",
+    },
 });

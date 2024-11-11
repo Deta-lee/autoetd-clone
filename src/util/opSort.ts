@@ -10,6 +10,10 @@ export const sortOperatorT = tHelper<SortOperator>({
         higher: "高い",
         lower: "低い",
     },
+    zh: {
+        higher: "高",
+        lower: "低",
+    },
 });
 
 export function opSort<T>(op: SortOperator, by: (item: T) => number) {

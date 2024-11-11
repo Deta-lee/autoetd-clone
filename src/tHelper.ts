@@ -1,6 +1,6 @@
 import { Lang } from "./Lang";
 
-const lang: Lang = "ja";
+const lang: Lang = "zh";
 
 export function tHelper<K extends string>(
     i18n: {
@@ -11,3 +11,6 @@ export function tHelper<K extends string>(
 ) {
     return (key: K) => (i18n[lang][key] || "") as string;
 }
+
+
+

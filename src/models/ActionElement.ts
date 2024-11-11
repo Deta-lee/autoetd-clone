@@ -43,4 +43,17 @@ export const actionElementT = tHelper<ActionElement>({
         service: "奉仕",
         masochism: "被虐",
     },
+    zh: {
+        none: "无",
+        light: "光",
+        dark: "暗",
+        flame: "火",
+        water: "水",
+        wind: "风",
+        earth: "地",
+        shame: "羞耻",
+        pleasure: "快感",
+        service: "服务",
+        masochism: "受虐",
+    },
 });
