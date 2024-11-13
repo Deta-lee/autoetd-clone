@@ -16,5 +16,5 @@ export const Alice = produce(createPerson(1, TR("アリス")), person => {
     person.sexualStatus.size.bust = 20;
     person.sexualStatus.size.underBust = 60;
     person.stateLevels.base = 1;
-    person.stateLevels.膨乳 = 1;
+    person.stateLevels.breastEnlargement = 1;
 });

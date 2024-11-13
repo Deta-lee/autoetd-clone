@@ -30,7 +30,7 @@ function bustup({
         );
 }
 
-export const 膨乳 = constitutionState({
+export const breastEnlargement = constitutionState({
     levelName: true,
     levels: [
         {

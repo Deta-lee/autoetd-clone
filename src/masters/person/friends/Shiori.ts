@@ -15,5 +15,5 @@ export const Shiori = produce(createPerson(2, "栞"), person => {
     person.sexualStatus.size.bust = 25;
     person.sexualStatus.size.underBust = 60;
     person.stateLevels.base = 1;
-    person.stateLevels.膨乳 = 0;
+    person.stateLevels.breastEnlargement = 0;
 });

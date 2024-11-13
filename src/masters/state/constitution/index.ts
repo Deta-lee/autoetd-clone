@@ -1,3 +1,3 @@
-export * from "./おっぱい";
-export * from "./おっぱいサイズ";
-export * from "./膨乳";
+export * from "./breasts";
+export * from "./breastSize";
+export * from "./breastEnlargement";

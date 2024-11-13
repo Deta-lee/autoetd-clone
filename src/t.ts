@@ -1,1 +1,3 @@
-export default (key: string) => key;
+import { TR } from "./tHelper";
+
+export default TR

@@ -62,7 +62,7 @@ const { reducer, actionCreators, actionTypes } = createActions("main", {
                 battle = new BattleClass({
                     initialField: {
                         friends: state.persons,
-                        enemies: [enemies.Slime], // TODO
+                        enemies: [enemies.Slime,enemies.Orc], // TODO
                     },
                     actions: [],
                 });
@@ -80,7 +80,7 @@ const { reducer, actionCreators, actionTypes } = createActions("main", {
                 const winner = battle.winner();
                 // TODO: 戦闘終了文言
                 if (winner) {
-                    dungeonLogs.push(`${winner === "friends" ? "勝利した!" : "敗北してしまった!"}`);
+                    dungeonLogs.push(`${winner === "friends" ? TR("勝利した!") : TR("敗北してしまった!")}`);
                     battle = undefined;
                     battleActionIndex = undefined;
                 }
@@ -98,7 +98,6 @@ export default reducer;
 
 export const {
     changeScene,
-
     initializeDungeon,
     progressDungeonTurn,
     progressDungeonLog,

@@ -2,37 +2,38 @@ import { PartId } from "./PartId";
 import { ActorSexualStatus } from "./ActorSexualStatus";
 import { partIdT } from "./partIdT";
 import { genSwitcher } from "../util";
+import { TR } from "../tHelper";
 
 const sensitivitySwitcher = genSwitcher(
-    [200, "過敏すぎて生活もままならない"],
-    [100, "過敏で感じすぎる"],
-    [50, "とても敏感な"],
-    [20, "敏感な"],
-    [10, "感じやすい"],
-    [4, "開発された"],
+    [200, TR("過敏すぎて生活もままならない")],
+    [100, TR("過敏で感じすぎる")],
+    [50, TR("とても敏感な")],
+    [20, TR("敏感な")],
+    [10, TR("感じやすい")],
+    [4, TR("開発された")],
     [-1, ""],
 );
 
 const bustSizeSwitcher = genSwitcher(
     // P下
-    [46.5, "戦えない爆乳"],
+    [46.5, TR("戦えない爆乳")],
     // N下
-    [41.5, "生活に困るレベルの爆乳"],
+    [41.5, TR("生活に困るレベルの爆乳")],
     // L下
-    [36.5, "規格外爆乳"],
+    [36.5, TR("規格外爆乳")],
     // J下
-    [31.5, "はちきれんばかりの爆乳"],
+    [31.5, TR("はちきれんばかりの爆乳")],
     // H下
-    [26.5, "爆乳"],
+    [26.5, TR("爆乳")],
     // F下
-    [21.5, "豊満な"],
+    [21.5, TR("豊満な")],
     // D中
-    [17, "大きな"],
+    [17, TR("大きな")],
     // B下
     [11.5, ""],
     // A下
-    [9, "ふくらみかけの"],
-    [-1, "ぺったんこな"],
+    [9, TR("ふくらみかけの")],
+    [-1, TR("ぺったんこな")],
 );
 
 export function personPartT(partId: PartId, status: ActorSexualStatus) {
@@ -40,7 +41,7 @@ export function personPartT(partId: PartId, status: ActorSexualStatus) {
     const sensitivity = sensitivitySwitcher(status.sensitivity[partId]);
     if (partId === "bust") {
         const bustSize = bustSizeSwitcher(status.size.bust);
-        return `${sensitivity}${bustSize}${part}`;
+        return `${sensitivity} ${bustSize} ${part}`;
     }
-    return `${sensitivity}${part}`;
+    return `${sensitivity} ${part}`;
 }
